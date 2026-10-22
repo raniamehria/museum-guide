@@ -1,0 +1,26 @@
+[project]
+name = "museum-guide"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "csanchez-cyber", email = "csanchez@albertschool.com" }
+]
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "datasets>=5.1.0",
+    "matplotlib>=3.11.2",
+    "numpy<2",
+    "pandas>=2.3.3",
+    "pillow>=13.0.0",
+    "scikit-learn>=1.9.1",
+    "torch==2.2.2",
+    "torchvision==0.17.2",
+]
+
+[project.scripts]
+museum-guide = "museum_guide:main"
+
+[build-system]
+requires = ["uv_build>=0.13.4,<0.14.0"]
+build-backend = "uv_build"
