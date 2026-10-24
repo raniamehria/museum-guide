@@ -7,6 +7,7 @@
 __pycache__/
 *.py[cod]
 .venv/
+.venv-download/
 venv/
 env/
 
@@ -27,7 +28,14 @@ test_local.csv
 
 # Data and models (WikiArt images must never be committed)
 data/
+!data/.gitkeep
 *.pt
 *.pth
+
 # Jupyter
 .ipynb_checkpoints/
+
+# generated artefacts
+results/
+checkpoints/
+*.pt
