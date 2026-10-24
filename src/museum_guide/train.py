@@ -40,3 +40,14 @@ def fit_with_best(model, train_loader, val_loader, loss_fn, optimizer, n_epochs,
             best_state = copy.deepcopy(model.state_dict())
     model.load_state_dict(best_state)
     return history, best_epoch
+
+def fit(model, train_loader, val_loader, loss_fn, optimizer, n_epochs, device):
+    """Plain training loop: keep the last epoch (no best-epoch selection)."""
+    history = {"train_loss": [], "val_loss": [], "val_acc": []}
+    for _ in range(n_epochs):
+        tr = train_one_epoch(model, train_loader, loss_fn, optimizer, device)
+        vl, va = evaluate(model, val_loader, loss_fn, device)
+        history["train_loss"].append(tr)
+        history["val_loss"].append(vl)
+        history["val_acc"].append(va)
+    return history
