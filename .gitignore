@@ -39,3 +39,7 @@ data/
 results/
 checkpoints/
 *.pt
+
+# trained models of the baseline / comparison notebooks (stay local, like the .pt files)
+models/
+*.pkl
