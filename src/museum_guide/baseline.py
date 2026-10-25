@@ -17,7 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from museum_guide.data import prepare_resnet
 
 # C = 1 / lambda in scikit-learn: small C = strong L2 penalty (weight decay of session 6)
-C_GRID = (0.001, 0.01, 0.1, 1.0, 10.0)
+C_GRID = (0.0001, 0.0003, 0.001, 0.01, 0.1, 1.0, 10.0)   # 0.0001 and 0.0003 added: on the pixels the best C was at the edge
 
 
 # 1. Features: images (N, 3, 128, 128) in [0, 1] -> one row of numbers per image
