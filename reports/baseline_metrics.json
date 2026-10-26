@@ -1,0 +1,143 @@
+{
+  "logreg_pixels": {
+    "C": 0.0003,
+    "n_features": 12288,
+    "parameters": 61445,
+    "val_acc": 0.408,
+    "test_acc": 0.356,
+    "test_macro_f1": 0.34106799566841967,
+    "fit_seconds": 168.8829653263092,
+    "c_table": [
+      {
+        "C": 0.0001,
+        "train_acc": 0.606,
+        "val_acc": 0.404
+      },
+      {
+        "C": 0.0003,
+        "train_acc": 0.723,
+        "val_acc": 0.408
+      },
+      {
+        "C": 0.001,
+        "train_acc": 0.896,
+        "val_acc": 0.4
+      },
+      {
+        "C": 0.01,
+        "train_acc": 0.994,
+        "val_acc": 0.36
+      },
+      {
+        "C": 0.1,
+        "train_acc": 1.0,
+        "val_acc": 0.36
+      },
+      {
+        "C": 1.0,
+        "train_acc": 1.0,
+        "val_acc": 0.348
+      },
+      {
+        "C": 10.0,
+        "train_acc": 1.0,
+        "val_acc": 0.328
+      }
+    ],
+    "size_mb": 0.787648
+  },
+  "logreg_colours": {
+    "C": 0.01,
+    "n_features": 512,
+    "parameters": 2565,
+    "val_acc": 0.5,
+    "test_acc": 0.428,
+    "test_macro_f1": 0.42895193721052777,
+    "fit_seconds": 3.3958590030670166,
+    "c_table": [
+      {
+        "C": 0.0001,
+        "train_acc": 0.461,
+        "val_acc": 0.396
+      },
+      {
+        "C": 0.0003,
+        "train_acc": 0.546,
+        "val_acc": 0.46
+      },
+      {
+        "C": 0.001,
+        "train_acc": 0.602,
+        "val_acc": 0.484
+      },
+      {
+        "C": 0.01,
+        "train_acc": 0.671,
+        "val_acc": 0.5
+      },
+      {
+        "C": 0.1,
+        "train_acc": 0.746,
+        "val_acc": 0.436
+      },
+      {
+        "C": 1.0,
+        "train_acc": 0.779,
+        "val_acc": 0.396
+      },
+      {
+        "C": 10.0,
+        "train_acc": 0.822,
+        "val_acc": 0.368
+      }
+    ],
+    "size_mb": 0.033948
+  },
+  "logreg_resnet": {
+    "C": 0.01,
+    "n_features": 512,
+    "parameters": 2565,
+    "val_acc": 0.724,
+    "test_acc": 0.728,
+    "test_macro_f1": 0.7299146944699506,
+    "fit_seconds": 2.2738990783691406,
+    "c_table": [
+      {
+        "C": 0.0001,
+        "train_acc": 0.757,
+        "val_acc": 0.672
+      },
+      {
+        "C": 0.0003,
+        "train_acc": 0.783,
+        "val_acc": 0.696
+      },
+      {
+        "C": 0.001,
+        "train_acc": 0.831,
+        "val_acc": 0.72
+      },
+      {
+        "C": 0.01,
+        "train_acc": 0.943,
+        "val_acc": 0.724
+      },
+      {
+        "C": 0.1,
+        "train_acc": 0.999,
+        "val_acc": 0.72
+      },
+      {
+        "C": 1.0,
+        "train_acc": 1.0,
+        "val_acc": 0.696
+      },
+      {
+        "C": 10.0,
+        "train_acc": 1.0,
+        "val_acc": 0.684
+      }
+    ],
+    "size_mb": 0.033948
+  }
+}
