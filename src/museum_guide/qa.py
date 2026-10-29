@@ -61,14 +61,12 @@ def build_artwork_index(
     Run once offline on Colab; the demo notebook loads the saved index.
     """
     caption_lookup = {
-        (c["style"], c["artist"]): c["caption"]
+        c["path"]: c["caption"]
         for c in json.loads(Path(captions_path).read_text(encoding="utf-8"))
     }
 
     meta = pd.read_csv(metadata_path)
-    meta["caption"] = meta.apply(
-        lambda r: caption_lookup[(r["style"], r["artist"])], axis=1
-    )
+    meta["caption"] = meta["path"].map(caption_lookup)
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     model     = AutoModel.from_pretrained(MODEL_NAME).eval()
