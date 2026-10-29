@@ -50,5 +50,25 @@ A neural network is worth it, **but a pretrained one (ResNet-18 with transfer le
 
 Limits: 250 test paintings, 5 well-separated styles, no test yet on real photos taken in the galleries.
 
+## Bonus — Natural-Language Q&A
+A visitor can type a question in plain language ("Which painting shows a stormy sea?", "I would like to see portraits of children") and the guide returns the top-3 matching artworks.
+
+**Approach**: zero-shot cosine similarity with a pre-trained sentence transformer (MiniLM-L6-v2, HuggingFace). No fine-tuning. A confidence guardrail (adapted from the NVIDIA VSS pattern in `resnet.ipynb`) returns "I'm not sure" when the best score is below threshold τ.
+
+**Why zero-shot over fine-tuning**: the subject's own example queries ("portraits of children", "stormy sea") cannot be covered by a label classifier — "portrait" is not a genre in our dataset and "stormy sea" has no label. Zero-shot retrieval with LLM-enriched captions handles both naturally. This also directly answers the director's question in the opposite direction from Task 3: for natural-language retrieval, the simpler model is sufficient.
+
+| Path | What |
+|---|---|
+| `src/museum_guide/qa.py` | `build_artwork_index()` — embeds all 1 500 captions offline; `answer()` — cosine retrieval + guardrail |
+| `data/artwork_captions.json` | LLM-generated captions, one per (style, artist) pair — not in Git |
+| `checkpoints/artwork_index.pt` | 1 500 × 384-dim normalised embeddings — not in Git |
+| `notebook/qa_demo.ipynb` | End-to-end demo: index build, 5 example queries, guardrail demo, τ sweep |
+
+**How to run**: `qa_demo.ipynb` requires `transformers>=4.40` and `torch>=2.6`, which conflict with the project's `torch==2.2.2` pin. Two options:
+- **Local**: create a separate venv — `python3 -m venv .venv-qa && source .venv-qa/bin/activate && pip install "torch>=2.6" transformers pandas` — then select `.venv-qa` as the kernel in VS Code.
+- **Colab** (T4 GPU, ~20 sec to build index): follow the "Option B" cell at the top of `qa_demo.ipynb`.
+
+Run Step 0 once to build the index, then all subsequent queries take ~2 ms on CPU.
+
 ## Team
 Chanelle, Luli, Wei-Ling and Rania.
