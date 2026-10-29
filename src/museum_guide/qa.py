@@ -117,8 +117,18 @@ def answer(
     stack  = torch.stack([art["embedding"] for art in index])  # (N, 384)
     scores = (stack @ q_emb).tolist()                          # cosine = dot (normalised)
 
-    ranked    = sorted(zip(scores, index), key=lambda x: -x[0])
-    top_score = ranked[0][0]
+    ranked = sorted(zip(scores, index), key=lambda x: -x[0])
+
+    # Deduplicate by (style, artist): keep one representative artwork per pair
+    seen: set[tuple[str, str]] = set()
+    unique_ranked = []
+    for score, art in ranked:
+        key = (art["style"], art["artist"])
+        if key not in seen:
+            seen.add(key)
+            unique_ranked.append((score, art))
+
+    top_score = unique_ranked[0][0]
 
     if top_score < tau:
         return {
@@ -142,7 +152,7 @@ def answer(
                 "style":  art["style"],
                 "artist": art["artist"],
             }
-            for rank, (score, art) in enumerate(ranked[:top_k])
+            for rank, (score, art) in enumerate(unique_ranked[:top_k])
         ],
     }
 
