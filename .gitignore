@@ -43,3 +43,5 @@ checkpoints/
 # trained models of the baseline / comparison notebooks (stay local, like the .pt files)
 models/
 *.pkl
+
+notebook/*.md
