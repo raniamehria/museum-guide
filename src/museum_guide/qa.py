@@ -1,7 +1,7 @@
 """Bonus — Natural-language Q&A for the museum guide.
 
-Requires: transformers>=4.40, torch>=2.6  (run on Colab, same as resnet.ipynb).
-Install in Colab: !pip install transformers sentence-transformers
+Requires: transformers==4.49.0, torch>=2.6  (run on Colab T4).
+Install in Colab: !pip install transformers==4.49.0 timm einops accelerate sentencepiece
 
 Step 1 — build_artwork_index(): run once offline, embeds all 1 500 artwork
           captions with MiniLM and saves them to checkpoints/artwork_index.pt.

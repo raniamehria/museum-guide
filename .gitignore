@@ -27,8 +27,12 @@ test_local.csv
 .DS_Store
 
 # Data and models (WikiArt images must never be committed)
-data/
+# Use data/* (not data/) so that negation exceptions below take effect
+data/*
+data/wikiart_style5/
 !data/.gitkeep
+!data/eval_queries.json
+!data/flagged_non_artworks.csv
 *.pt
 *.pth
 

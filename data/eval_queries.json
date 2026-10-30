@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "query": "Show me Impressionist art",
+    "relevance": {"type": "style", "value": "Impressionism"},
+    "note": "Basic style query — adjective form"
+  },
+  {
+    "id": 2,
+    "query": "I want to see Baroque paintings",
+    "relevance": {"type": "style", "value": "Baroque"},
+    "note": "Basic style query"
+  },
+  {
+    "id": 3,
+    "query": "Show me Cubist works",
+    "relevance": {"type": "style", "value": "Cubism"},
+    "note": "Basic style query — adjective form"
+  },
+  {
+    "id": 4,
+    "query": "Japanese prints and woodblock art",
+    "relevance": {"type": "style", "value": "Ukiyo_e"},
+    "note": "Style query without movement name — tests descriptor"
+  },
+  {
+    "id": 5,
+    "query": "I like Pop Art and bold colours",
+    "relevance": {"type": "style", "value": "Pop_Art"},
+    "note": "Style query with visual adjective"
+  },
+  {
+    "id": 6,
+    "query": "I would like to see portraits of children",
+    "relevance": {"type": "tag", "value": "child"},
+    "note": "Subject brief example — portrait is not a genre in metadata"
+  },
+  {
+    "id": 7,
+    "query": "Which painting shows a stormy sea?",
+    "relevance": {"type": "tag", "value": "seascape"},
+    "note": "Subject brief example — visual concept with no metadata label"
+  },
+  {
+    "id": 8,
+    "query": "Show me still life paintings",
+    "relevance": {"type": "tag", "value": "still life"},
+    "note": "Subject query — genre exists in metadata but only for ~10% of images"
+  },
+  {
+    "id": 9,
+    "query": "I am looking for portrait paintings",
+    "relevance": {"type": "tag", "value": "portrait"},
+    "note": "Subject query — portrait has no metadata genre label in this subset"
+  },
+  {
+    "id": 10,
+    "query": "Show me paintings with boats or ships",
+    "relevance": {"type": "tag", "value": "boats"},
+    "note": "Specific subject query"
+  },
+  {
+    "id": 11,
+    "query": "I want to see landscape paintings",
+    "relevance": {"type": "tag", "value": "landscape"},
+    "note": "Subject query — common visitor request"
+  },
+  {
+    "id": 12,
+    "query": "Show me paintings of flowers",
+    "relevance": {"type": "tag", "value": "flowers"},
+    "note": "Subject query — specific visual element"
+  },
+  {
+    "id": 13,
+    "query": "I am looking for paintings of women",
+    "relevance": {"type": "tag", "value": "woman"},
+    "note": "Subject query — figure type"
+  },
+  {
+    "id": 14,
+    "query": "Show me religious or biblical scenes",
+    "relevance": {"type": "tag", "value": "religious scene"},
+    "note": "Subject query — common in Baroque"
+  },
+  {
+    "id": 15,
+    "query": "I want to see paintings of animals",
+    "relevance": {"type": "tag", "value": "animals"},
+    "note": "Subject query — specific visual element"
+  },
+  {
+    "id": 16,
+    "query": "Show me paintings by Hokusai",
+    "relevance": {"type": "artist", "value": "katsushika-hokusai"},
+    "note": "Artist query — named artist with 34 images"
+  },
+  {
+    "id": 17,
+    "query": "I would like to see paintings by Rubens",
+    "relevance": {"type": "artist", "value": "peter-paul-rubens"},
+    "note": "Artist query — named artist, Baroque"
+  },
+  {
+    "id": 18,
+    "query": "Show me Impressionist landscapes",
+    "relevance": {"type": "style", "value": "Impressionism"},
+    "note": "Combined query — style + subject; style used as primary rule"
+  },
+  {
+    "id": 19,
+    "query": "I am looking for something calm and Japanese",
+    "relevance": {"type": "style", "value": "Ukiyo_e"},
+    "note": "Mood query — no style name, relies on style descriptor"
+  },
+  {
+    "id": 20,
+    "query": "Show me dramatic or dark paintings with strong contrast",
+    "relevance": {"type": "style", "value": "Baroque"},
+    "note": "Mood/technique query — relies on style descriptor (chiaroscuro)"
+  }
+]
