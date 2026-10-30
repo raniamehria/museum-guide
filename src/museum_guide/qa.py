@@ -20,9 +20,11 @@ from transformers import AutoModel, AutoTokenizer
 
 MODEL_NAME  = "sentence-transformers/all-MiniLM-L6-v2"
 MAX_LEN     = 120
-CAPTIONS_PATH = Path("data/artwork_captions.json")
-METADATA_PATH = Path("data/wikiart_style5/metadata.csv")
+CAPTIONS_PATH    = Path("data/artwork_captions.json")       # v1 (BLIP-base, artist-level)
+CAPTIONS_PATH_V2 = Path("data/artwork_captions_v2.json")   # v2 (BLIP/Florence per-image + CLIP tags)
+METADATA_PATH    = Path("data/wikiart_style5/metadata.csv")
 INDEX_PATH    = Path("checkpoints/artwork_index.pt")
+INDEX_PATH_V2 = Path("checkpoints/artwork_index_v2.pt")
 TAU = 0.30
 
 
