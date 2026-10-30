@@ -21,6 +21,11 @@ dependencies = [
 [project.scripts]
 museum-guide = "museum_guide:main"
 
+# Bonus Q&A (.venv-qa — separate venv, NOT installed by uv sync):
+#   pip install "torch>=2.6" transformers timm einops pandas pillow
+# timm and einops are required by Florence-2-large (microsoft/Florence-2-large).
+# They conflict with torch==2.2.2 in the main venv, so they live only in .venv-qa.
+
 [build-system]
 requires = ["uv_build>=0.13.4,<0.14.0"]
 build-backend = "uv_build"
