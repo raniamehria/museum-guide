@@ -17,12 +17,14 @@ A WikiArt subset built with the course script `scripts/make_wikiart_subset.py`: 
 | `notebook/mlp.ipynb` | Tâche 1: MLP, learning curves | Chanelle, Luli |
 | `notebook/mlp_diagnosis.ipynb` | Tâche 2: diagnosis, dropout / weight decay / early stopping, learning rate | Luli |
 | `notebook/resnet.ipynb` | Tâche 3: ResNet-18 transfer learning (frozen backbone, then `layer4`), regularised step C with a 3-seed check, guardrail and similar-artwork search | Wei-Ling |
+| `src/museum_guide/resnet.py` | Tâche 3: the same recipe as a module (steps A, B, C with a seed, best-epoch training loop, weight loading, CPU time); `python -m museum_guide.resnet` trains and saves `models/resnet18.pt` | Wei-Ling |
 | `src/museum_guide/baseline.py`, `notebook/baseline.ipynb` | Tâche 4: classical baseline, logistic regression on pixels, colour histograms and frozen ResNet features | Rania |
 | `src/museum_guide/benchmark.py`, `notebook/comparison.ipynb` | Tâche 4: CPU time / size of every model, final table and recommendation | Rania |
 | `reports/` | measured results of Tâche 4 (`baseline_metrics.json`, `comparison.csv`, `accuracy_vs_cpu.png`) | Rania |
 
 ## Run it
 Locally (Python 3.11, [uv](https://docs.astral.sh/uv/)): `uv sync`, put the images in `data/wikiart_style5/`, then run the notebooks in this order: `mlp.ipynb`, `mlp_diagnosis.ipynb`, `resnet.ipynb`, `baseline.ipynb`, `comparison.ipynb` (it needs the models saved by `baseline.ipynb`).
+To train the ResNet without the notebook: `uv run python -m museum_guide.resnet --step B` (steps A + B, saves `models/resnet18.pt`), or `--step C --seed 1` for the regularised version with another seed.
 
 On Colab: `resnet.ipynb` and `baseline.ipynb` start with a "Colab only" cell that clones the repo and loads the images; the last cell of `baseline.ipynb` also runs `comparison.ipynb` in the same session.
 
